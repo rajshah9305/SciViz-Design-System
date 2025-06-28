@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useTheme } from "@/hooks/use-theme";
 import { HeroSection } from "@/components/hero-section";
 import { ControlsFilters } from "@/components/controls-filters";
-import { LayoutCard } from "@/components/layout-card";
+import { EnhancedLayoutCard } from "@/components/enhanced-layout-card";
 import { LayoutModal } from "@/components/layout-modal";
 import { StatsSection } from "@/components/stats-section";
 import { categories } from "@/lib/layouts-data";
@@ -271,7 +271,7 @@ export default function Home() {
               : "space-y-6"
           }>
             {displayLayouts.map((layout) => (
-              <LayoutCard
+              <EnhancedLayoutCard
                 key={layout.id}
                 layout={layout}
                 onPreview={handleLayoutPreview}
@@ -279,6 +279,7 @@ export default function Home() {
                 onInfo={handleLayoutInfo}
                 onUse={handleLayoutUse}
                 viewMode={viewMode}
+                priority={layout.id <= 2 ? 'featured' : 'standard'}
               />
             ))}
           </div>
