@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(25, 100%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(25, 100%, 50%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(25, 100%, 50%);
+  --radius: 0.75rem;
+
+  /* Custom SciViz Orange/Black Theme */
+  --sci-orange: hsl(25, 100%, 50%);
+  --sci-amber: hsl(25, 100%, 53%);
+  --sci-bright: hsl(39, 100%, 50%);
+  --sci-gold: hsl(45, 100%, 50%);
+  --sci-charcoal: hsl(0, 0%, 18%);
+  --sci-black: hsl(0, 0%, 10%);
+  --warm-gray-50: hsl(20, 14.3%, 97%);
+  --warm-gray-100: hsl(20, 14.3%, 95%);
+  --warm-gray-200: hsl(20, 5.9%, 90%);
+  --warm-gray-300: hsl(24, 5.7%, 82.9%);
+  --warm-gray-400: hsl(24, 5.4%, 63.9%);
+  --warm-gray-500: hsl(25, 5.3%, 44.7%);
+  --warm-gray-600: hsl(33, 5.5%, 32.4%);
+  --warm-gray-700: hsl(30, 6.2%, 25.1%);
+  --warm-gray-800: hsl(12, 6.5%, 15.1%);
+  --warm-gray-900: hsl(24, 9.8%, 10%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 10%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 18%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(0, 0%, 10%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 18%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(25, 100%, 50%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(25, 100%, 50%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(25, 100%, 50%);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom animations and effects */
+@keyframes pulse-orange {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 hsla(25, 100%, 50%, 0.7); 
+  }
+  50% { 
+    box-shadow: 0 0 0 10px hsla(25, 100%, 50%, 0); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes glow {
+  from { 
+    box-shadow: 0 0 20px hsla(25, 100%, 50%, 0.3); 
+  }
+  to { 
+    box-shadow: 0 0 40px hsla(25, 100%, 50%, 0.6); 
+  }
+}
+
+@keyframes flow {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-pulse-orange {
+  animation: pulse-orange 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-flow {
+  animation: flow 2s linear infinite;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsla(25, 100%, 50%, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid hsla(25, 100%, 50%, 0.3);
+}
+
+/* Gradient backgrounds */
+.gradient-orange {
+  background: linear-gradient(135deg, hsl(25, 100%, 50%) 0%, hsl(25, 100%, 53%) 50%, hsl(39, 100%, 50%) 100%);
+}
+
+.gradient-orange-subtle {
+  background: linear-gradient(135deg, hsla(25, 100%, 50%, 0.1) 0%, hsla(25, 100%, 53%, 0.1) 50%, hsla(39, 100%, 50%, 0.1) 100%);
+}
+
+/* Professional spacing and typography */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Neural network specific styles */
+.neural-connection {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(90deg, transparent, hsl(25, 100%, 50%), transparent);
+  opacity: 0.6;
+  animation: flow 2s linear infinite;
+}
+
+/* High contrast accessibility */
+@media (prefers-contrast: high) {
+  :root {
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(0, 0%, 0%);
+    --sci-orange: hsl(25, 100%, 45%);
+  }
+  
+  .dark {
+    --background: hsl(0, 0%, 0%);
+    --foreground: hsl(0, 0%, 100%);
+    --sci-orange: hsl(25, 100%, 60%);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-orange,
+  .animate-float,
+  .animate-glow,
+  .animate-flow {
+    animation: none;
+  }
+}
